@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  db:
+    image: kriation/centos7-mariadb:10.6
+    restart: always
+
+  php:
+    image: kriation/centos7-php:7.4
+    restart: always
+
+  nginx:
+    image: kriation/centos7-nginx:mainline
+    restart: always
+    volumes:
+      - nginx_conf:/etc/nginx/conf.d
+      - nginx_data:/usr/share/nginx/html
+    ports:
+      - 8080:80
+    restart: always
+
+volumes:
+  nginx_conf:
+    name: 'nginx-config'
+  nginx_data:
+    name: 'nginx-data'
