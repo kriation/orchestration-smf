@@ -4,6 +4,8 @@ services:
   db:
     image: kriation/centos7-mariadb:10.6
     restart: always
+    volumes:
+      - mariadb_data:/var/lib/mysql
 
   php:
     image: kriation/centos7-php:7.4
@@ -20,6 +22,8 @@ services:
     restart: always
 
 volumes:
+  mariadb_data:
+    name: 'mariadb-data'
   nginx_conf:
     name: 'nginx-config'
   nginx_data:
