@@ -1,0 +1,4 @@
+- name: Use Docker Compose to deploy containers
+  community.docker.docker_compose:
+    project_name: smf
+    project_src: "{{ role_path }}/files"
